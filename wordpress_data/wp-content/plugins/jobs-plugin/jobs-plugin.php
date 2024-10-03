@@ -20,6 +20,9 @@ function job_openings_post_type() {
         'supports' => ['title', 'editor'],
         'rewrite' => ['slug' => 'openings'], // Set a custom slug
         'menu_icon' => 'dashicons-businessman',
+        'show_in_rest' => true,  // This enables REST API support
+        'rest_base' => 'openings', // Optional: Define a custom REST API endpoint slug
+
     ]);
 }
 

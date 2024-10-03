@@ -16,14 +16,19 @@
 		<h1 class="wp-block-heading has-text-align-center has-x-large-font-size">We Are Looking for You</h1>
 		<!-- /wp:heading -->
 
-	<!-- wp:spacer {"height":"var:preset|spacing|30","style":{"layout":{}}} -->
+
+		<!-- wp:spacer {"height":"var:preset|spacing|30"} -->
+		<div style="height:var(--wp--preset--spacing--30)" aria-hidden="true" class="wp-block-spacer"></div>
+		<!-- /wp:spacer -->
         <!-- wp:paragraph {"align":"center"} -->
-		<p class="has-text-align-center">Yes, you. With over a thousand positions, we're so much more than just a car company. We have roles in Human Resources, Finance, Marketing, Sales, Operations, Information Technology, Customer Service, Research and Development, Legal, Administrative
- and more.</p>
+		<p class="has-text-align-center">Yes, you. With over a thousand positions, we're so much more than just a car company. We have roles in Human Resources, Finance, Marketing, Sales, Operations, Information Technology, Customer Service, Research and Development, Legal, Administrative and more.</p>
         <!-- /wp:paragraph -->
+ 
 
 
-     	<!-- /wp:spacer -->
+		<!-- wp:spacer {"height":"var:preset|spacing|30"} -->
+		<div style="height:var(--wp--preset--spacing--30)" aria-hidden="true" class="wp-block-spacer"></div>
+		<!-- /wp:spacer -->
 
 
 	<!-- wp:image {"align":"wide","sizeSlug":"full","linkDestination":"none","className":"is-style-rounded"} -->

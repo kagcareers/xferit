@@ -4,6 +4,9 @@
 # Any changes to the directives between these markers will be overwritten.
 <IfModule mod_rewrite.c>
 RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^data\.json$ data.php [L]
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
@@ -18,7 +21,7 @@ RewriteRule . /index.php [L]
 # The directives (lines) between "BEGIN Simply Static" and "END Simply Static" are
 # dynamically generated, and should only be modified via WordPress filters.
 # Any changes to the directives between these markers will be overwritten.
-<Files "/var/www/html/wp-content/uploads/simply-static/75b74d14211e5ea990fef43a6e7374bc-debug.txt">
+<Files "/var/www/html/wp-content/uploads/simply-static/f34fcbe63bbdc039abf0aaf81daa8aef-debug.txt">
 require all denied
 require host localhost
 </Files>

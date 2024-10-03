@@ -34,8 +34,9 @@ add_action( 'init', 'kaizencareers_pattern_categories' );
  */
  function my_theme_setup_pages() {
     $pages = array(
-        'News' => 'news.html',
-        'Our Locations' => 'locations.html',
+        'Current Openings' => 'current-openings',
+        'News' => 'news',
+        'Our Locations' => 'locations',
     );
 
     foreach ($pages as $page_title => $template) {
@@ -51,5 +52,29 @@ add_action( 'init', 'kaizencareers_pattern_categories' );
             ));
         }
     }
+
+    if(!get_page_by_title('Data')) {
+        wp_insert_post(array(
+            'post_title'=> 'Data',
+            'post_content' => 'do not edit this page',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'data'
+        ));
+    }
 }
 add_action('after_switch_theme', 'my_theme_setup_pages');
+
+function exclude_pages_from_menu_by_title($items, $args) {
+    $exclude_titles = array('Data');
+
+    foreach ($items as $key => $item) {
+        if (in_array($item->title, $exclude_titles)) {
+            unset($items[$key]);
+        }
+    }
+    var_dump($items);
+    die();
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'exclude_pages_from_menu_by_title', 10, 2);
