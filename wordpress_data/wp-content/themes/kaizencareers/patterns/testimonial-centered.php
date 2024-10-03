@@ -15,7 +15,7 @@
 	<div class="wp-block-group">
 		<!-- wp:paragraph {"align":"center","style":{"typography":{"lineHeight":"1.2"}},"textColor":"base","fontSize":"x-large","fontFamily":"heading"} -->
 		<p class="has-text-align-center has-base-color has-text-color has-heading-font-family has-x-large-font-size" style="line-height:1.2">
-			<em><?php echo esc_html_x( 'Were no strangers to love. You know the rules and so do I. A full commitment&#39;s what I&#39;m thinking of. Never gonna give you up. Never gonna let you down. Never gonna run around and desert you.', 'Testimonial Text or Review Text Got From the Person', 'kaizencareers' ); ?></em>
+			<em><?php echo esc_html_x( 'We&#39;re no strangers to love. You know the rules and so do I. A full commitment&#39;s what I&#39;m thinking of. Never gonna give you up. Never gonna let you down. Never gonna run around and desert you.', 'Testimonial Text or Review Text Got From the Person', 'kaizencareers' ); ?></em>
 		</p>
 		<!-- /wp:paragraph -->
 

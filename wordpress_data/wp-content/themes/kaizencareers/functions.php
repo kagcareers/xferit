@@ -37,6 +37,7 @@ add_action( 'init', 'kaizencareers_pattern_categories' );
         'Current Openings' => 'current-openings',
         'News' => 'news',
         'Our Locations' => 'locations',
+        'Apply Now' => 'application-form',
     );
 
     foreach ($pages as $page_title => $template) {
@@ -51,16 +52,6 @@ add_action( 'init', 'kaizencareers_pattern_categories' );
                 'page_template' => $template,
             ));
         }
-    }
-
-    if(!get_page_by_title('Data')) {
-        wp_insert_post(array(
-            'post_title'=> 'Data',
-            'post_content' => 'do not edit this page',
-            'post_status' => 'publish',
-            'post_type' => 'page',
-            'page_template' => 'data'
-        ));
     }
 }
 add_action('after_switch_theme', 'my_theme_setup_pages');

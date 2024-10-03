@@ -1,0 +1,104 @@
+<!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
+
+
+<!-- wp:group {"tagName":"main"} -->
+<main class="wp-block-group">
+	<!-- wp:group {"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group">
+		<!-- wp:spacer {"height":"var:preset|spacing|50"} -->
+		<div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
+		<!-- /wp:spacer -->
+
+
+
+
+
+
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    td {
+        border-bottom: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+
+<h1>Job Openings</h1>
+<table id="jobsTable">
+    <tbody>
+        <!-- Data will be inserted here -->
+    </tbody>
+</table>
+
+<script>
+    function d2hm(month){
+        switch (month){
+            case "1": return "Jan";
+            case "2": return "Feb";
+            case "3": return "Mar";
+            case "4": return "Apr";
+            case "5": return "May";
+            case "6": return "Jun";
+            case "7": return "Jul";
+            case "8": return "Aug";
+            case "9": return "Sept";
+            case "10": return "Oct";
+            case "11": return "Nov";
+            case "12": return "Dec";
+            default: return month;
+        }
+    }
+
+    function printDate(d) {
+        date = new Date(d);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const hmonth = d2hm(month);
+        const day = String(date.getDate()).padStart(2, '0');
+
+        const formattedDate = `${hmonth} ${day}, ${year}`;
+        return formattedDate;
+
+    }
+
+    fetch('http://localhost:8080/data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network Error');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const tableBody = document.getElementById('jobsTable').getElementsByTagName('tbody')[0];
+            data.forEach(job => {
+                const row = tableBody.insertRow();
+                row.insertCell(0).textContent = job.title;
+                row.insertCell(1).textContent = printDate(job.created_on);
+                row.insertCell(2).textContent = job.departments.join(', ') || '';
+                row.insertCell(3).textContent = job.locations.join(', ') || '';
+                row.insertCell(4).innerHTML = `<a href="${job.link}">View Job</a>`;
+            });
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+</script>
+
+		<!-- wp:spacer {"height":"var:preset|spacing|30","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
+		<div style="margin-top:0;margin-bottom:0;height:var(--wp--preset--spacing--30)" aria-hidden="true"
+			class="wp-block-spacer"></div>
+		<!-- /wp:spacer -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:post-content {"lock":{"move":false,"remove":true},"layout":{"type":"constrained"}} /-->
+</main>
+<!-- /wp:group -->
