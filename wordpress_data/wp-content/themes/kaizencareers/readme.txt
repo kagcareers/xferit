@@ -1,50 +1,19 @@
-=== Twenty Twenty-Four ===
-Contributors: wordpressdotorg
+=== Kaizen Careers ===
+Contributors: kaizenautomotive
 Requires at least: 6.4
 Tested up to: 6.6
 Requires PHP: 7.0
 Stable tag: 1.2
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: Proprietary
 
 == Description ==
 
-Twenty Twenty-Four is designed to be flexible, versatile and applicable to any website. Its collection of templates and patterns tailor to different needs, such as presenting a business, blogging and writing or showcasing work. A multitude of possibilities open up with just a few adjustments to color and typography. Twenty Twenty-Four comes with style variations and full page designs to help speed up the site building process, is fully compatible with the site editor, and takes advantage of new design tools introduced in WordPress 6.4.
+A theme for the Kaizen Automotive Careers Website
 
 == Changelog ==
 
-= 1.2 =
-* Released: July 16, 2024
-
-https://wordpress.org/documentation/article/twenty-twenty-four-changelog/#Version_1.2
-
-= 1.1 =
-* Released: April 2, 2024
-
-https://wordpress.org/documentation/article/twenty-twenty-four-changelog/#Version_1.1
-
 = 1.0 =
-* Released: November 7, 2023
-
-https://wordpress.org/documentation/article/twenty-twenty-four-changelog/#Version_1.0
-
-== Copyright ==
-
-Twenty Twenty-Four WordPress Theme, (C) 2023 WordPress.org
-Twenty Twenty-Four is distributed under the terms of the GNU GPL.
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-
-This theme bundles the following third-party resources:
+* Released: October 1, 2024
 
 === Fonts ===
 
