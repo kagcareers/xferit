@@ -29,13 +29,18 @@ add_action('init', 'job_openings_post_type');
 
 require_once (__DIR__.'/locations.php');
 require_once (__DIR__.'/locations-wp.php');
+require_once (__DIR__.'/departments.php');
+require_once (__DIR__.'/departments-wp.php');
 
+
+require_once (__DIR__.'/json-out.php');
 
 
 
 ////////// display the list of job openings
 function display_job_openings() {
     $location_filter = isset($_GET['job_location_filter']) ? sanitize_text_field($_GET['job_location_filter']) : '';
+    $department_filter = isset($_GET['job_department_filter']) ? sanitize_text_field($_GET['job_department_filter']) : '';
 
     $args = [
         'post_type' => 'opening',
@@ -47,6 +52,11 @@ function display_job_openings() {
             [
                 'key' => 'job_location',
                 'value' => $location_filter,
+                'compare' => 'LIKE',
+            ],
+            [
+                'key' => 'job_department',
+                'value' => $department_filter,
                 'compare' => 'LIKE',
             ],
         ];
@@ -77,3 +87,29 @@ function display_job_openings() {
 
 add_shortcode('job_openings', 'display_job_openings');
 
+//// filter job listings
+
+function job_opening_filter_form() {
+
+    ob_start();
+    ?>
+    <form method="GET" action="">
+        <select name="job_location_filter">
+            <option value="">All Locations</option>
+            <?php foreach (all_locations() as $loc) : ?>
+                <option value="<?php echo esc_attr($loc->shorthand()); ?>"><?php echo esc_html($loc->name()); ?></option>
+            <?php endforeach; ?>
+        </select>
+        <select name="job_department_filter">
+            <option value="">All Departments</option>
+            <?php foreach (all_departments() as $dep) : ?>
+                <option value="<?php echo esc_attr($dep->shorthand()); ?>"><?php echo esc_html($dep->name()); ?></option>
+            <?php endforeach; ?>
+        </select>
+        <input type="submit" value="Filter">
+    </form>
+    <?php
+    return ob_get_clean();
+}
+
+add_shortcode('job_filter_form', 'job_opening_filter_form');
