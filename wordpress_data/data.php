@@ -10,7 +10,7 @@ function translate_data($data){
             "id"=> $d->id,
             "title" => $d->title->rendered,
             "created_on"=> $d->date,
-            "data_link" => $d->_links->self[0]->href,
+            "link" => $d->link,
             "departments" =>  $d->job_department ? explode(",", $d->job_department): [],
             "locations" =>  $d->job_location ? explode(",", $d->job_location): [],
 
